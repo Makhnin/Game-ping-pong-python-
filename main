@@ -28,4 +28,27 @@ for i in range(25):
         border.down()
 border.hideturtle()
 
+rocket_a = turtle.Turtle()
+rocket_a.color('white')
+rocket_a.shape('square')
+rocket_a.shapesize(stretch_len=1, stretch_wid=5)
+rocket_a.penup()
+rocket_a.goto(-450,0)
+
+def move_up():
+    y = rocket_a.ycor() + 10
+    if y > 250:
+        y = 250
+    rocket_a.sety(y)
+
+def move_down():
+    y = rocket_a.ycor() - 10
+    if y < -250:
+        y = -250
+    rocket_a.sety(y)
+
+window.listen()
+window.onkeypress(move_up, "w")
+window.onkeypress(move_down, "s")
+
 window.mainloop()
